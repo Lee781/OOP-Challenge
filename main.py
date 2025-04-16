@@ -1,41 +1,28 @@
+# Importing the Pet class
 from pet import Pet
 
-# Create your pet
-my_pet = Pet("Buddy")
+# Creating an instance of the Pet class for Gigi
+gigi = Pet("Gigi")
 
-# Show starting status
-my_pet.get_status()
+# Gigi does some activities
+gigi.eat()
+gigi.sleep()
+gigi.play()
 
-# Feed, play, and rest
-my_pet.eat()
-my_pet.play()
-my_pet.sleep()
+# Gigi's status
+gigi.get_status()
 
-# Teach a bunch of tricks!
-tricks_to_learn = [
-    "sit",
-    "roll over",
-    "fetch",
-    "shake hands",
-    "spin",
-    "play dead",
-    "stay",
-    "come",
-    "high five",
-    "jump",
-    "backflip",
-    "dance",
-]
+# Teaching Gigi some tricks
+gigi.train("sit")
+gigi.train("roll over")
+gigi.train("fetch")
+gigi.train("shake hands")
+gigi.train("spin")
 
-# Train Buddy with all the tricks
-for trick in tricks_to_learn:
-    my_pet.train(trick)
+# Showing all tricks Gigi knows
+gigi.show_tricks()
 
-# Show all learned tricks
-my_pet.show_tricks()
-
-# Show final status
-my_pet.get_status()
-
-
-
+# Gigi's status after playing and eating
+gigi.play()
+gigi.eat()
+gigi.get_status()
