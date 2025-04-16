@@ -6,41 +6,30 @@ class Pet:
         self.happiness = 5
         self.tricks = []
 
+    def get_status(self):
+        return f"{self.name} - Hunger: {self.hunger}, Energy: {self.energy}, Happiness: {self.happiness} 🙈"
+
     def eat(self):
-        self.hunger = max(0, self.hunger - 3)
-        self.happiness = min(10, self.happiness + 1)
-        print(f"{self.name} ate some food! 🍽️")
+        self.hunger = max(0, self.hunger - 2)
+        self.happiness += 1
+        print(f"{self.name} ate and now feels happier! 🥰")
 
     def sleep(self):
-        self.energy = min(10, self.energy + 5)
-        print(f"{self.name} took a nap! 😴")
+        self.energy = min(10, self.energy + 3)
+        print(f"{self.name} slept and is now more energized! 😴")
 
     def play(self):
-        if self.energy >= 2:
-            self.energy -= 2
-            self.happiness = min(10, self.happiness + 2)
-            self.hunger = min(10, self.hunger + 1)
-            print(f"{self.name} played happily! 🎾")
-        else:
-            print(f"{self.name} is too tired to play. 😴")
+        self.happiness += 2
+        self.hunger += 1
+        self.energy = max(0, self.energy - 1)
+        print(f"{self.name} played and had fun, but got a bit hungry! 🐾")
 
     def train(self, trick):
-        if trick not in self.tricks:
-            self.tricks.append(trick)
-            self.happiness = min(10, self.happiness + 1)
-            print(f"{self.name} learned a new trick: {trick}! 🐕‍🦺")
-        else:
-            print(f"{self.name} already knows how to {trick}!")
+        self.tricks.append(trick.capitalize())
+        print(f"{self.name} learned the trick: {trick.capitalize()}! 🎓")
+        self.hunger += 1
+        self.energy = max(0, self.energy - 1)
+        self.happiness += 1
 
     def show_tricks(self):
-        if self.tricks:
-            print(f"{self.name} knows these tricks: {', '.join(self.tricks)}")
-        else:
-            print(f"{self.name} hasn't learned any tricks yet.")
-
-    def get_status(self):
-        print(f"🐶 {self.name}'s Status:")
-        print(f"Hunger: {self.hunger}/10")
-        print(f"Energy: {self.energy}/10")
-        print(f"Happiness: {self.happiness}/10")
-        print("-" * 20)
+        print(f"{self.name} has learned the following tricks: {', '.join(self.tricks)} 🎩")
